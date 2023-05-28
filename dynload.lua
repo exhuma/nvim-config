@@ -7,11 +7,10 @@
 -- Load all modules inside *base_folder* and return the loaded modules as a table
 --
 function load_modules(base_folder)
-  local handle = io.popen('ls -1 "' .. base_folder .. '"')
-  local result = handle:read("*a")
-  handle:close()
+  local fn = vim.fn
+  local result = fn.systemlist({'ls', '-1', base_folder})
   local output = {}
-  for str in string.gmatch(result, "([^\n]+)") do
+  for _, str in ipairs(result) do
     local bar = string.match(str, "(.*).lua")
     if bar ~= nil then
       local mod = require(base_folder .. '.' .. bar)
