@@ -32,7 +32,6 @@ bootstrap.run()
 
 load_plugins()
 
--- TODO setup_git_integration()
 -- TODO setup_linter()
 -- TODO setup_code_formatter()
 -- TODO define_keymappings()
