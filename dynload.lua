@@ -2,7 +2,6 @@
 -- This module contains function to help dynamically load LUA modules
 --
 
-
 --
 -- Load all modules inside *base_folder* and return the loaded modules as a table
 --
