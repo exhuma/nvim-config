@@ -18,6 +18,19 @@ function run()
   vim.o.showcmd = true
   -- Highlight the column where the text should wrap
   vim.o.colorcolumn="+1"
+  vim.o.mouse = false
+
+  vim.o.list = true
+  vim.o.listchars = table.concat(
+    {
+      "tab:├─",
+      "trail:␣",
+      "extends:→",
+      "precedes:←",
+      "nbsp:◊",
+    },
+    ","
+  )
 end
 
 return {
