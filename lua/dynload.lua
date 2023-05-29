@@ -13,8 +13,9 @@ function load_modules(base_folder)
   for _, str in ipairs(result) do
     local basename = string.match(str, "(.*).lua")
     if basename ~= nil then
-      local mod = require(namespace .. '.' .. basename)
-      table.insert(output, mod)
+      name = namespace .. '.' .. basename
+      local mod = require(name)
+      table.insert(output, {name=name, module=mod})
     end
   end
   return output

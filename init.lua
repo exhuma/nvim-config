@@ -25,7 +25,10 @@ end
 function load_modules(folder)
   local plugins = dynload.load_modules(folder)
   for _, plugin in ipairs(plugins) do
-    plugin.run()
+    local is_success, error_msg = pcall(plugin.module.run)
+    if not is_success then
+        error(string.format("Error calling %s.run(): %s", plugin.name, error_msg))
+    end
   end
 end
 
