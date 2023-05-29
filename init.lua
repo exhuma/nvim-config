@@ -3,6 +3,11 @@
 --
 dynload = require("dynload")
 
+function script_path()
+   local str = debug.getinfo(2, "S").source:sub(2)
+   return str:match("(.*/)")
+end
+
 --
 -- Load all modules/plugins in a given subfolder.
 --
@@ -30,9 +35,9 @@ end
 bootstrap = require("bootstrap")
 bootstrap.run()
 
-load_modules("plugins_d")
-load_modules("behaviour")
-load_modules("look_and_feel")
+load_modules(script_path() .. "/lua/plugins_d")
+load_modules(script_path() .. "/lua/behaviour")
+load_modules(script_path() .. "/lua/look_and_feel")
 
 -- TODO setup_linter()
 -- TODO setup_code_formatter()

@@ -8,11 +8,12 @@
 function load_modules(base_folder)
   local fn = vim.fn
   local result = fn.systemlist({'ls', '-1', base_folder})
+  local namespace = string.match(base_folder, ".*/(.*)")
   local output = {}
   for _, str in ipairs(result) do
-    local bar = string.match(str, "(.*).lua")
-    if bar ~= nil then
-      local mod = require(base_folder .. '.' .. bar)
+    local basename = string.match(str, "(.*).lua")
+    if basename ~= nil then
+      local mod = require(namespace .. '.' .. basename)
       table.insert(output, mod)
     end
   end

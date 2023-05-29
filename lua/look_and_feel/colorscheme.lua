@@ -1,5 +1,6 @@
 function config()
   vim.cmd [[colorscheme apprentice]]
+  print(1)
 end
 
 function run() 
