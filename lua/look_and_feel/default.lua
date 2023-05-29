@@ -1,4 +1,4 @@
-function run() 
+local function run() 
   vim.o.wildmenu = true
   vim.o.cmdheight = 2
   vim.o.scrolloff = 7

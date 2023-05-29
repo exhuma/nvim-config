@@ -1,8 +1,8 @@
-function config()
+local function config()
   vim.cmd [[colorscheme apprentice]]
 end
 
-function run() 
+local function run() 
   require('packer').use({'romainl/Apprentice', config=config})
 end
 

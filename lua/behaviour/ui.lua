@@ -1,4 +1,4 @@
-function run()
+local function run()
   vim.o.wildignore=table.concat(
     {
       "*.lnk",

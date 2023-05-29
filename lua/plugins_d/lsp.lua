@@ -1,4 +1,4 @@
-function map_keys()
+local function map_keys()
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -28,7 +28,7 @@ function map_keys()
     })
 end
 
-function config()
+local function config()
   require("mason").setup()
   require("mason-lspconfig").setup(
       { ensure_installed = { "lua_ls", "pyright" } }
@@ -47,7 +47,7 @@ function config()
   vim.cmd [[:MasonUpdate]]
 end
 
-function run()
+local function run()
     require('packer').use({"williamboman/mason.nvim"})
     require('packer').use({"williamboman/mason-lspconfig.nvim", after="mason.nvim"})
     require('packer').use({"neovim/nvim-lspconfig", config=config, after="mason-lspconfig.nvim"})

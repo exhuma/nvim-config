@@ -1,8 +1,8 @@
-function config()
+local function config()
     require("lualine").setup()
 end
 
-function run()
+local function run()
   require('packer').use(
     {
       'nvim-lualine/lualine.nvim',

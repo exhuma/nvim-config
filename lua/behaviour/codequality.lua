@@ -1,4 +1,4 @@
-function run() 
+local function run() 
   vim.o.autoindent = true
   vim.o.expandtab = true
   vim.o.shiftround = true

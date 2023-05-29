@@ -1,4 +1,4 @@
-function run()
+local function run()
   require('packer').use('tpope/vim-fugitive')
 end
 

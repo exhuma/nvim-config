@@ -1,9 +1,9 @@
 --
 -- This module contains a high-level initialisation for NeoVim
 --
-dynload = require("dynload")
+local dynload = require("dynload")
 
-function script_path()
+local function script_path()
    local str = debug.getinfo(2, "S").source:sub(2)
    return str:match("(.*/)")
 end
@@ -22,7 +22,7 @@ end
 --       run=run
 --     }
 -- 
-function load_modules(folder)
+local function load_modules(folder)
   local plugins = dynload.load_modules(folder)
   for _, plugin in ipairs(plugins) do
     local is_success, error_msg = pcall(plugin.module.run)
@@ -35,7 +35,7 @@ end
 -- ---------------------------------------------------------------------------
 
 -- Call early boot-strapping code for the rest of the config
-bootstrap = require("bootstrap")
+local bootstrap = require("bootstrap")
 bootstrap.run()
 
 load_modules(script_path() .. "/lua/plugins_d")
