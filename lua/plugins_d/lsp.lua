@@ -44,11 +44,10 @@ local function config()
       },
   })
   require("lspconfig").pyright.setup({})
-  vim.cmd [[:MasonUpdate]]
 end
 
 local function run()
-    require('packer').use({"williamboman/mason.nvim"})
+    require('packer').use({"williamboman/mason.nvim", run=":MasonUpdate"})
     require('packer').use({"williamboman/mason-lspconfig.nvim", after="mason.nvim"})
     require('packer').use({"neovim/nvim-lspconfig", config=config, after="mason-lspconfig.nvim"})
     map_keys()
